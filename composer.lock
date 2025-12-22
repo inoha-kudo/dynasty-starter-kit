@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "f801924782e19931bab4369dc322d129",
+    "content-hash": "3e78660d44058e649476053d5cf3b6b5",
     "packages": [
         {
             "name": "brick/math",
@@ -440,6 +440,36 @@
                 }
             ],
             "time": "2025-10-31T18:51:33+00:00"
+        },
+        {
+            "name": "dynasty/hello",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/inoha-kudo/dynasty-hello.git",
+                "reference": "8c0cf61adc7c3f0e9ef034d2f77d652da5122df5"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/inoha-kudo/dynasty-hello/zipball/8c0cf61adc7c3f0e9ef034d2f77d652da5122df5",
+                "reference": "8c0cf61adc7c3f0e9ef034d2f77d652da5122df5",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Dynasty\\Hello\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "support": {
+                "issues": "https://github.com/inoha-kudo/dynasty-hello/issues",
+                "source": "https://github.com/inoha-kudo/dynasty-hello/tree/1.0.0"
+            },
+            "time": "2026-01-17T12:23:31+00:00"
         },
         {
             "name": "egulias/email-validator",
