@@ -123,5 +123,9 @@
         "resources/js/**/*.d.ts",
         "resources/js/**/*.tsx",
         "resources/js/**/*.vue",
+        "vendor/dynasty/*/resources/js/**/*.ts",
+        "vendor/dynasty/*/resources/js/**/*.d.ts",
+        "vendor/dynasty/*/resources/js/**/*.tsx",
+        "vendor/dynasty/*/resources/js/**/*.vue",
     ]
 }

@@ -6,8 +6,8 @@
         "build": "vite build",
         "build:ssr": "vite build && vite build --ssr",
         "dev": "vite",
-        "format": "prettier --write resources/",
-        "format:check": "prettier --check resources/",
+        "format": "prettier --write --no-error-on-unmatched-pattern resources/ app-modules/*/resources/",
+        "format:check": "prettier --check --no-error-on-unmatched-pattern resources/ app-modules/*/resources/",
         "lint": "eslint . --fix"
     },
     "devDependencies": {
@@ -22,6 +22,7 @@
         "prettier-plugin-organize-imports": "^4.3.0",
         "prettier-plugin-tailwindcss": "^0.7.2",
         "typescript-eslint": "^8.51.0",
+        "vite-tsconfig-paths": "^6.0.3",
         "vue-tsc": "^3.2.1"
     },
     "dependencies": {
