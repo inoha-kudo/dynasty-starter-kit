@@ -1,0 +1,13 @@
+{
+    "name": "dynasty/ping",
+    "version": "1.0.0",
+    "license": "MIT",
+    "require": {
+        "miraiportal/ping": "^1.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Dynasty\\Ping\\": "src/"
+        }
+    }
+}

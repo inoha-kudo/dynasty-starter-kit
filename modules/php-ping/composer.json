@@ -1,0 +1,24 @@
+{
+    "name": "miraiportal/ping",
+    "version": "1.0.0",
+    "license": "MIT",
+    "scripts": {
+        "test": "vendor/bin/phpunit"
+    },
+    "require": {
+        "php": "^8.5"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^12.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Miraiportal\\Ping\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Miraiportal\\Ping\\Tests\\": "tests/"
+        }
+    }
+}

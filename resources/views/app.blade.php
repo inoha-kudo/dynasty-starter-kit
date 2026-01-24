@@ -10,14 +10,7 @@
         <link rel="icon" href="/favicon.svg" type="image/svg+xml">
         <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 
-        @if(str_contains($page['component'], '::'))
-            @php
-                [$module, $path] = explode('::', $page['component']);
-            @endphp
-            @vite(['resources/js/app.ts', "vendor/dynasty/{$module}/resources/js/pages/{$path}.vue", 'webfonts.css'])
-        @else
-            @vite(['resources/js/app.ts', "resources/js/pages/{$page['component']}.vue", 'webfonts.css'])
-        @endif
+        @moduleVite($page)
         @inertiaHead
     </head>
     <body class="font-sans antialiased">

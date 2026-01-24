@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import PingTest from '@dynasty/ping/components/PingTest.vue';
 import { Head } from '@inertiajs/vue3';
 </script>
 
@@ -17,6 +18,9 @@ import { Head } from '@inertiajs/vue3';
                     <p class="mb-2 text-[#706f6c] dark:text-[#A1A09A]">
                         Laravel has an incredibly rich ecosystem. <br />We suggest starting with the following.
                     </p>
+                    <div class="mt-4 mb-6">
+                        <PingTest />
+                    </div>
                     <ul class="mb-4 flex flex-col lg:mb-6">
                         <li
                             class="relative flex items-center gap-4 py-2 before:absolute before:top-1/2 before:bottom-0 before:left-[0.4rem] before:border-l before:border-[#e3e3e0] dark:before:border-[#3E3E3A]"

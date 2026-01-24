@@ -1,0 +1,11 @@
+{
+    "name": "@dynasty/ping",
+    "version": "1.0.0",
+    "license": "MIT",
+    "exports": {
+        "./*": "./resources/js/*"
+    },
+    "dependencies": {
+        "@miraiportal/ping": "^1.0.0"
+    }
+}

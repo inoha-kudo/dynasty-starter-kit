@@ -6,29 +6,39 @@
         "build": "vite build",
         "build:ssr": "vite build && vite build --ssr",
         "dev": "vite",
-        "format": "prettier --write --no-error-on-unmatched-pattern resources/ app-modules/*/resources/",
-        "format:check": "prettier --check --no-error-on-unmatched-pattern resources/ app-modules/*/resources/",
-        "lint": "eslint . --fix"
+        "format": "prettier --write --no-error-on-unmatched-pattern resources/ app-modules/*/resources/ modules/*/resources/",
+        "format:check": "prettier --check --no-error-on-unmatched-pattern resources/ app-modules/*/resources/ modules/*/resources/",
+        "lint": "eslint . --fix",
+        "test": "vitest run"
     },
     "workspaces": [
-        "vendor/dynasty/*"
+        "app-modules/*",
+        "modules/*"
     ],
     "devDependencies": {
         "@eslint/js": "^9.39.2",
+        "@faker-js/faker": "^10.2.0",
         "@laravel/vite-plugin-wayfinder": "^0.1.7",
+        "@tanstack/vue-query": "^5.92.9",
+        "@testing-library/vue": "^8.1.0",
         "@types/node": "^25.0.3",
         "@vue/eslint-config-typescript": "^14.6.0",
         "eslint": "^9.39.2",
         "eslint-config-prettier": "^10.1.8",
         "eslint-plugin-vue": "^10.6.2",
+        "happy-dom": "^20.3.7",
+        "msw": "^2.12.7",
+        "orval": "^8.0.3",
         "prettier": "^3.7.4",
         "prettier-plugin-organize-imports": "^4.3.0",
         "prettier-plugin-tailwindcss": "^0.7.2",
         "typescript-eslint": "^8.51.0",
         "vite-plugin-webfont-dl": "^3.11.1",
+        "vitest": "^4.0.18",
         "vue-tsc": "^3.2.1"
     },
     "dependencies": {
+        "@dynasty/hello": "^1.0.0",
         "@inertiajs/vue3": "^2.3.4",
         "@tailwindcss/vite": "^4.1.18",
         "@vitejs/plugin-vue": "^6.0.3",
@@ -45,7 +55,9 @@
         "vue": "^3.5.26"
     },
     "optionalDependencies": {
-        "@rollup/rollup-linux-x64-gnu": "4.54.0",
+        "@esbuild/linux-x64": "^0.27.3",
+        "@rollup/rollup-darwin-x64": "^4.57.1",
+        "@rollup/rollup-linux-x64-gnu": "^4.54.0",
         "@tailwindcss/oxide-linux-x64-gnu": "^4.1.18",
         "lightningcss-linux-x64-gnu": "^1.30.2"
     }

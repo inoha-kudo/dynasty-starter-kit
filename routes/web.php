@@ -7,4 +7,4 @@ Route::get('/', function () {
     return Inertia::render('Welcome');
 })->name('home');
 
-Route::redirect('', 'hello');
+// Route::redirect('', 'hello');

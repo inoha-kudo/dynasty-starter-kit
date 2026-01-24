@@ -36,11 +36,16 @@
         "paths": {
             /* Specify a set of entries that re-map imports to additional lookup locations. */
             "@/*": ["./resources/js/*"],
+            "@miraiportal/ping/*": ["./node_modules/@miraiportal/ping/resources/js/*"],
+            "@dynasty/ping/*": ["./app-modules/dynasty-ping/resources/js/*"],
+            "@miraiportal/vue-ping/*": ["./modules/vue-ping/resources/js/*"],
+            "@dynasty/hello/*": ["./app-modules/dynasty-hello/resources/js/*"]
         },
         // "rootDirs": [],                                   /* Allow multiple folders to be treated as one when resolving modules. */
         // "typeRoots": [],                                  /* Specify multiple folders that act like './node_modules/@types'. */
         "types": [
             "vite/client",
+            "vitest/globals",
             "./resources/js/types"
         ] /* Specify type package names to be included without being referenced in a source file. */,
         // "allowUmdGlobalAccess": true,                     /* Allow accessing UMD globals from modules. */
@@ -123,5 +128,9 @@
         "resources/js/**/*.d.ts",
         "resources/js/**/*.tsx",
         "resources/js/**/*.vue",
+        "app-modules/**/*.ts",
+        "app-modules/**/*.vue",
+        "modules/**/*.ts",
+        "modules/**/*.vue"
     ]
 }
