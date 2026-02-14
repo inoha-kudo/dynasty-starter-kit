@@ -4,7 +4,6 @@ namespace App\Providers;
 
 use App\Enums\Module;
 use Illuminate\Http\Response;
-use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\ServiceProvider;
 use Laravel\Pennant\Middleware\EnsureFeaturesAreActive;
 

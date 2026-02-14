@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "8f45f3f27ae95a73f85122966fc072e1",
+    "content-hash": "611a03a530c920a6f4e7dd58f1a4dd88",
     "packages": [
         {
             "name": "brick/math",
@@ -2378,6 +2378,45 @@
             "autoload-dev": {
                 "psr-4": {
                     "Miraiportal\\Ping\\Tests\\": "tests/"
+                }
+            },
+            "scripts": {
+                "test": [
+                    "vendor/bin/phpunit"
+                ]
+            },
+            "license": [
+                "MIT"
+            ],
+            "transport-options": {
+                "symlink": false,
+                "relative": true
+            }
+        },
+        {
+            "name": "miraiportal/ranking",
+            "version": "1.0.0",
+            "dist": {
+                "type": "path",
+                "url": "modules/php-ranking",
+                "reference": "e2db468528015e7896e0ada8ba085a5cf1dee305"
+            },
+            "require": {
+                "nesbot/carbon": "^3.11",
+                "php": "^8.5"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^13.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Miraiportal\\Ranking\\": "src/"
+                }
+            },
+            "autoload-dev": {
+                "psr-4": {
+                    "Miraiportal\\Ranking\\Tests\\": "tests/"
                 }
             },
             "scripts": {
@@ -12687,5 +12726,5 @@
         "php": "^8.5"
     },
     "platform-dev": {},
-    "plugin-api-version": "2.6.0"
+    "plugin-api-version": "2.9.0"
 }
