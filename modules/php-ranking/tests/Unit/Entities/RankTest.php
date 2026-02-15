@@ -11,18 +11,16 @@ final class RankTest extends TestCase
 {
     public function test_of_with_value_at_min(): void
     {
-        $this->assertInstanceOf(
-            Rank::class,
-            Rank::of(Rank::MIN),
-        );
+        $this->expectNotToPerformAssertions();
+
+        Rank::of(Rank::MIN);
     }
 
     public function test_of_with_value_at_max(): void
     {
-        $this->assertInstanceOf(
-            Rank::class,
-            Rank::of(Rank::MAX),
-        );
+        $this->expectNotToPerformAssertions();
+
+        Rank::of(Rank::MAX);
     }
 
     public function test_of_with_value_less_than_min(): void

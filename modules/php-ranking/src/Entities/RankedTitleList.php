@@ -14,10 +14,10 @@ final readonly class RankedTitleList
         RankedTitle ...$rankedTitles,
     ) {
         if (! self::hasUniqueRanks(...$rankedTitles)) {
-            throw new \DomainException('The provided ranked titles must have unique ranks per (ranking_id, stored_at).');
+            throw new \DomainException('The provided ranked titles must have unique ranks per (rankingId, storedAt).');
         }
         if (! self::hasUniqueTitles(...$rankedTitles)) {
-            throw new \DomainException('The provided ranked titles must have unique titles per (ranking_id, stored_at).');
+            throw new \DomainException('The provided ranked titles must have unique titles per (rankingId, storedAt).');
         }
 
         $this->rankedTitles = $rankedTitles;
@@ -29,9 +29,9 @@ final readonly class RankedTitleList
         return new self(...$rankedTitles);
     }
 
-    public function add(self $rankedTitleList): self
+    public function add(self $other): self
     {
-        return self::from(...$this->rankedTitles, ...$rankedTitleList->all());
+        return self::from(...$this->rankedTitles, ...$other->all());
     }
 
     /** @return list<RankedTitle> */

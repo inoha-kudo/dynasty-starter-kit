@@ -30,28 +30,30 @@ final class RankedTitleListTest extends TestCase
         ];
     }
 
-    public function test_from_with_ranked_titles_at_min_count(): void
+    public function test_from_with_empty_ranked_titles(): void
     {
-        $this->assertInstanceOf(
-            RankedTitleList::class,
-            RankedTitleList::from(),
-        );
+        $this->expectNotToPerformAssertions();
+
+        RankedTitleList::from();
     }
 
-    public function test_from_with_ranked_titles_at_max_count(): void
+    public function test_from_with_ranked_titles_having_non_unique_ranks(): void
     {
-        $this->assertInstanceOf(
-            RankedTitleList::class,
-            RankedTitleList::from(
-                ...array_map(
-                    fn (int $i) => RankedTitle::create(
-                        $this->rankedTitles[0]->rankingId->value,
-                        $this->rankedTitles[0]->storedAt,
-                        $i,
-                        "title_$i",
-                    ),
-                    range(Rank::MIN, Rank::MAX),
-                ),
+        $this->expectException(DomainException::class);
+        $this->expectExceptionMessage('The provided ranked titles must have unique ranks per (rankingId, storedAt).');
+
+        RankedTitleList::from(
+            RankedTitle::create(
+                $this->rankedTitles[0]->rankingId->value,
+                $this->rankedTitles[0]->storedAt,
+                $this->rankedTitles[0]->rank->value,
+                $this->rankedTitles[0]->title,
+            ),
+            RankedTitle::create(
+                $this->rankedTitles[1]->rankingId->value,
+                $this->rankedTitles[1]->storedAt,
+                $this->rankedTitles[0]->rank->value,
+                $this->rankedTitles[1]->title,
             ),
         );
     }
@@ -59,20 +61,20 @@ final class RankedTitleListTest extends TestCase
     public function test_from_with_ranked_titles_having_non_unique_titles(): void
     {
         $this->expectException(DomainException::class);
-        $this->expectExceptionMessage('The provided ranked titles must have unique titles per (ranking_id, stored_at).');
+        $this->expectExceptionMessage('The provided ranked titles must have unique titles per (rankingId, storedAt).');
 
         RankedTitleList::from(
             RankedTitle::create(
                 $this->rankedTitles[0]->rankingId->value,
                 $this->rankedTitles[0]->storedAt,
                 $this->rankedTitles[0]->rank->value,
-                'title',
+                $this->rankedTitles[0]->title,
             ),
             RankedTitle::create(
-                $this->rankedTitles[0]->rankingId->value,
-                $this->rankedTitles[0]->storedAt,
-                $this->rankedTitles[0]->rank->value + 1,
-                'title',
+                $this->rankedTitles[1]->rankingId->value,
+                $this->rankedTitles[1]->storedAt,
+                $this->rankedTitles[1]->rank->value,
+                $this->rankedTitles[0]->title,
             ),
         );
     }

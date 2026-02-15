@@ -35,10 +35,9 @@ final class RankedTitleTest extends TestCase
 
     public function test_create(): void
     {
-        $this->assertInstanceOf(
-            RankedTitle::class,
-            RankedTitle::create(...$this->rankedTitle),
-        );
+        $this->expectNotToPerformAssertions();
+
+        RankedTitle::create(...$this->rankedTitle);
     }
 
     public function test_values(): void
@@ -55,7 +54,7 @@ final class RankedTitleTest extends TestCase
             $rankedTitle->rankingId,
         );
 
-        $this->assertEquals(
+        $this->assertSame(
             $this->rankedTitle['storedAt'],
             $rankedTitle->storedAt,
         );
