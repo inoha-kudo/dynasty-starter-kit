@@ -37,6 +37,16 @@ final readonly class RankedTitle
         );
     }
 
+    public function rankUniqueKey(): string
+    {
+        return "{$this->rankingId->value}|{$this->storedAt}|{$this->rank->value}";
+    }
+
+    public function titleUniqueKey(): string
+    {
+        return "{$this->rankingId->value}|{$this->storedAt}|{$this->title}";
+    }
+
     /** @return array{id: ?int, ranking_id: int, stored_at: string, rank: int, title: string, metadata: ?array<string, mixed>} */
     public function toArray(): array
     {
@@ -48,15 +58,5 @@ final readonly class RankedTitle
             'title' => $this->title,
             'metadata' => $this->metadata,
         ];
-    }
-
-    public function rankUniqueKey(): string
-    {
-        return "{$this->rankingId->value}|{$this->storedAt->toIso8601String()}|{$this->rank->value}";
-    }
-
-    public function titleUniqueKey(): string
-    {
-        return "{$this->rankingId->value}|{$this->storedAt->toIso8601String()}|{$this->title}";
     }
 }

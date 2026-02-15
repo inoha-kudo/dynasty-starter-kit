@@ -38,8 +38,8 @@ class AppServiceProvider extends ServiceProvider
     {
         $vite = \Illuminate\Support\Facades\Vite::useHotFile(base_path('public/hot'));
 
-        if (str_contains($page['component'], '::')) {
-            [$module, $path] = explode('::', $page['component']);
+        if (str_contains((string) $page['component'], '::')) {
+            [$module, $path] = explode('::', (string) $page['component']);
 
             return $vite(['resources/js/app.ts', "app-modules/{$module}/resources/js/pages/{$path}.vue", 'webfonts.css']);
         }
@@ -49,9 +49,7 @@ class AppServiceProvider extends ServiceProvider
 
     private function registerBladeDirective(): void
     {
-        \Illuminate\Support\Facades\Blade::directive('moduleVite', function ($expression) {
-            return "<?php echo \App\Providers\AppServiceProvider::moduleVite({$expression}); ?>";
-        });
+        \Illuminate\Support\Facades\Blade::directive('moduleVite', fn ($expression) => "<?php echo \App\Providers\AppServiceProvider::moduleVite({$expression}); ?>");
     }
 
     private static function applyConfigOverrides(): void

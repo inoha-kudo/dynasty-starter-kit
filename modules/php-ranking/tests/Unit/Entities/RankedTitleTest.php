@@ -12,43 +12,24 @@ use PHPUnit\Framework\TestCase;
 
 final class RankedTitleTest extends TestCase
 {
-    private int $id;
-
-    private int $rankingId;
-
-    private CarbonImmutable $storedAt;
-
-    private int $rank;
-
-    private string $title;
-
-    private array $metadata;
-
     private array $rankedTitle;
 
     protected function setUp(): void
     {
         parent::setUp();
 
-        $this->id = 1;
-        $this->rankingId = 1;
-        $this->storedAt = CarbonImmutable::parse('2025-11-23T09:00:00+00:00');
-        $this->rank = Rank::MIN;
-        $this->title = 'title';
-        $this->metadata = [
-            'description' => 'description',
-            'thumbnail' => 'thumbnail',
-            'genre' => 'genre',
-            'link' => 'link',
-        ];
-
         $this->rankedTitle = [
-            'id' => $this->id,
-            'rankingId' => $this->rankingId,
-            'storedAt' => $this->storedAt,
-            'rank' => $this->rank,
-            'title' => $this->title,
-            'metadata' => $this->metadata,
+            'id' => 1,
+            'rankingId' => RankingId::MIN,
+            'storedAt' => CarbonImmutable::parse('1970-01-01T00:00:00+00:00'),
+            'rank' => Rank::MIN,
+            'title' => 'title',
+            'metadata' => [
+                'description' => 'description',
+                'thumbnail' => 'thumbnail',
+                'genre' => 'genre',
+                'link' => 'link',
+            ],
         ];
     }
 
@@ -65,33 +46,48 @@ final class RankedTitleTest extends TestCase
         $rankedTitle = RankedTitle::create(...$this->rankedTitle);
 
         $this->assertSame(
-            $this->id,
+            $this->rankedTitle['id'],
             $rankedTitle->id,
         );
 
         $this->assertEquals(
-            RankingId::of($this->rankingId),
+            RankingId::of($this->rankedTitle['rankingId']),
             $rankedTitle->rankingId,
         );
 
         $this->assertEquals(
-            CarbonImmutable::parse($this->storedAt),
+            $this->rankedTitle['storedAt'],
             $rankedTitle->storedAt,
         );
 
         $this->assertEquals(
-            Rank::of($this->rank),
+            Rank::of($this->rankedTitle['rank']),
             $rankedTitle->rank,
         );
 
         $this->assertSame(
-            $this->title,
+            $this->rankedTitle['title'],
             $rankedTitle->title,
         );
 
         $this->assertSame(
-            $this->metadata,
+            $this->rankedTitle['metadata'],
             $rankedTitle->metadata,
+        );
+    }
+
+    public function test_unique_keys(): void
+    {
+        $rankedTitle = RankedTitle::create(...$this->rankedTitle);
+
+        $this->assertSame(
+            "{$this->rankedTitle['rankingId']}|{$this->rankedTitle['storedAt']}|{$this->rankedTitle['rank']}",
+            $rankedTitle->rankUniqueKey(),
+        );
+
+        $this->assertSame(
+            "{$this->rankedTitle['rankingId']}|{$this->rankedTitle['storedAt']}|{$this->rankedTitle['title']}",
+            $rankedTitle->titleUniqueKey(),
         );
     }
 
@@ -99,12 +95,12 @@ final class RankedTitleTest extends TestCase
     {
         $this->assertSame(
             [
-                'id' => $this->id,
-                'ranking_id' => $this->rankingId,
-                'stored_at' => $this->storedAt->toIso8601String(),
-                'rank' => $this->rank,
-                'title' => $this->title,
-                'metadata' => $this->metadata,
+                'id' => $this->rankedTitle['id'],
+                'ranking_id' => $this->rankedTitle['rankingId'],
+                'stored_at' => $this->rankedTitle['storedAt']->toIso8601String(),
+                'rank' => $this->rankedTitle['rank'],
+                'title' => $this->rankedTitle['title'],
+                'metadata' => $this->rankedTitle['metadata'],
             ],
             RankedTitle::create(...$this->rankedTitle)->toArray(),
         );
