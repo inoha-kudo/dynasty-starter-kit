@@ -29,7 +29,7 @@ final class RankTest extends TestCase
 
         $this->expectException(\InvalidArgumentException::class);
         $this->expectExceptionMessage(sprintf(
-            'The provided value (%d) must be greater than or equal to %d.',
+            Rank::EXCEPTION_MESSAGE_VALUE_LESS_THAN_MIN,
             $value,
             Rank::MIN,
         ));
@@ -43,7 +43,7 @@ final class RankTest extends TestCase
 
         $this->expectException(\InvalidArgumentException::class);
         $this->expectExceptionMessage(sprintf(
-            'The provided value (%d) must be less than or equal to %d.',
+            Rank::EXCEPTION_MESSAGE_VALUE_GREATER_THAN_MAX,
             $value,
             Rank::MAX,
         ));

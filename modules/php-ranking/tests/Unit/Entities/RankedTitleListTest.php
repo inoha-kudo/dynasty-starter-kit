@@ -40,7 +40,7 @@ final class RankedTitleListTest extends TestCase
     public function test_from_with_ranked_titles_having_non_unique_ranks(): void
     {
         $this->expectException(DomainException::class);
-        $this->expectExceptionMessage('The provided ranked titles must have unique ranks per (rankingId, storedAt).');
+        $this->expectExceptionMessage(RankedTitleList::EXCEPTION_MESSAGE_NON_UNIQUE_RANKS);
 
         RankedTitleList::from(
             RankedTitle::create(
@@ -61,7 +61,7 @@ final class RankedTitleListTest extends TestCase
     public function test_from_with_ranked_titles_having_non_unique_titles(): void
     {
         $this->expectException(DomainException::class);
-        $this->expectExceptionMessage('The provided ranked titles must have unique titles per (rankingId, storedAt).');
+        $this->expectExceptionMessage(RankedTitleList::EXCEPTION_MESSAGE_NON_UNIQUE_TITLES);
 
         RankedTitleList::from(
             RankedTitle::create(
@@ -112,7 +112,9 @@ final class RankedTitleListTest extends TestCase
                 $this->rankedTitles[0]->title,
                 $this->rankedTitles[1]->title,
             ],
-            RankedTitleList::from(...$this->rankedTitles)->map(fn (RankedTitle $rankedTitle) => $rankedTitle->title),
+            RankedTitleList::from(...$this->rankedTitles)->map(
+                fn (RankedTitle $rankedTitle) => $rankedTitle->title,
+            ),
         );
     }
 

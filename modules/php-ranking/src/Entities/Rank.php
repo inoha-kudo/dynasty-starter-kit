@@ -10,19 +10,23 @@ final readonly class Rank
 
     public const int MAX = 100;
 
+    public const string EXCEPTION_MESSAGE_VALUE_LESS_THAN_MIN = 'The provided value (%d) must be greater than or equal to %d.';
+
+    public const string EXCEPTION_MESSAGE_VALUE_GREATER_THAN_MAX = 'The provided value (%d) must be less than or equal to %d.';
+
     private function __construct(
         public int $value,
     ) {
         if ($value < self::MIN) {
             throw new \InvalidArgumentException(sprintf(
-                'The provided value (%d) must be greater than or equal to %d.',
+                self::EXCEPTION_MESSAGE_VALUE_LESS_THAN_MIN,
                 $value,
                 self::MIN,
             ));
         }
         if ($value > self::MAX) {
             throw new \InvalidArgumentException(sprintf(
-                'The provided value (%d) must be less than or equal to %d.',
+                self::EXCEPTION_MESSAGE_VALUE_GREATER_THAN_MAX,
                 $value,
                 self::MAX,
             ));

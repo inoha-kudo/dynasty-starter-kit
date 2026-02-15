@@ -6,6 +6,10 @@ namespace Miraiportal\Ranking\Entities;
 
 final readonly class RankedTitleList
 {
+    public const string EXCEPTION_MESSAGE_NON_UNIQUE_RANKS = 'The provided ranked titles must have unique ranks per (rankingId, storedAt).';
+
+    public const string EXCEPTION_MESSAGE_NON_UNIQUE_TITLES = 'The provided ranked titles must have unique titles per (rankingId, storedAt).';
+
     /** @var list<RankedTitle> */
     private array $rankedTitles;
 
@@ -14,10 +18,10 @@ final readonly class RankedTitleList
         RankedTitle ...$rankedTitles,
     ) {
         if (! self::hasUniqueRanks(...$rankedTitles)) {
-            throw new \DomainException('The provided ranked titles must have unique ranks per (rankingId, storedAt).');
+            throw new \DomainException(self::EXCEPTION_MESSAGE_NON_UNIQUE_RANKS);
         }
         if (! self::hasUniqueTitles(...$rankedTitles)) {
-            throw new \DomainException('The provided ranked titles must have unique titles per (rankingId, storedAt).');
+            throw new \DomainException(self::EXCEPTION_MESSAGE_NON_UNIQUE_TITLES);
         }
 
         $this->rankedTitles = $rankedTitles;
