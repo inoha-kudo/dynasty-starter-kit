@@ -108,7 +108,10 @@ final class RankedTitleListTest extends TestCase
     public function test_map(): void
     {
         $this->assertSame(
-            ['title_1', 'title_2'],
+            [
+                $this->rankedTitles[0]->title,
+                $this->rankedTitles[1]->title,
+            ],
             RankedTitleList::from(...$this->rankedTitles)->map(fn (RankedTitle $rankedTitle) => $rankedTitle->title),
         );
     }
@@ -122,7 +125,7 @@ final class RankedTitleListTest extends TestCase
                     'ranking_id' => $this->rankedTitles[0]->rankingId->value,
                     'stored_at' => $this->rankedTitles[0]->storedAt->toIso8601String(),
                     'rank' => $this->rankedTitles[0]->rank->value,
-                    'title' => 'title_'.$this->rankedTitles[0]->rank->value,
+                    'title' => $this->rankedTitles[0]->title,
                     'metadata' => null,
                 ],
                 [
@@ -130,7 +133,7 @@ final class RankedTitleListTest extends TestCase
                     'ranking_id' => $this->rankedTitles[1]->rankingId->value,
                     'stored_at' => $this->rankedTitles[1]->storedAt->toIso8601String(),
                     'rank' => $this->rankedTitles[1]->rank->value,
-                    'title' => 'title_'.$this->rankedTitles[1]->rank->value,
+                    'title' => $this->rankedTitles[1]->title,
                     'metadata' => null,
                 ],
             ],
