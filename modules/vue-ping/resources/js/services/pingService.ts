@@ -1,8 +1,10 @@
 import { useQuery } from '@tanstack/vue-query';
+import { reactive } from 'vue';
+import { PingNullRepository } from '../repositories/pingNullRepository';
 import type { PingRepository } from '../repositories/pingRepository';
 
 export class PingService {
-    constructor(private readonly pingRepository: PingRepository) {}
+    constructor(private readonly pingRepository: PingRepository = new PingNullRepository()) {}
 
     createComposables() {
         return {
@@ -18,12 +20,12 @@ export class PingService {
                 enabled: false,
             });
 
-            return {
+            return reactive({
                 data: query.data,
                 isFetching: query.isFetching,
                 error: query.error,
                 fetch: query.refetch,
-            };
+            });
         };
     }
 }

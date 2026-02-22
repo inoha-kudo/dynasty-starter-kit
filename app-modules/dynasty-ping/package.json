@@ -6,6 +6,6 @@
         "./*": "./resources/js/*"
     },
     "dependencies": {
-        "@miraiportal/ping": "^1.0.0"
+        "@miraiportal/vue-ping": "^1.0.0"
     }
 }

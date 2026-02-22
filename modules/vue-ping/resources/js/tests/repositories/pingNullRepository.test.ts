@@ -1,4 +1,4 @@
-import { PingMockRepository } from '../../repositories/pingMockRepository';
+import { PingNullRepository } from '../../repositories/pingNullRepository';
 
 beforeEach(() => {
     vi.useFakeTimers();
@@ -9,10 +9,10 @@ afterEach(() => {
 });
 
 test('ping', async () => {
-    const repository = new PingMockRepository();
+    const repository = new PingNullRepository();
     const promise = repository.ping();
 
     await vi.advanceTimersByTimeAsync(500);
 
-    expect(promise).resolves.toBe('[MOCK] pong');
+    expect(promise).resolves.toBe('');
 });

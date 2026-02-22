@@ -1,19 +1,13 @@
 import { inject } from 'vue';
-import { PingQueryFactory } from '../factories/pingQueryFactory';
 import { pingRepositoryKey } from '../injectionSymbols';
-import { PingMockRepository } from '../repositories/pingMockRepository';
+import { PingService } from '../services/pingService';
 
 export const usePingPage = () => {
-    const pingRepository = inject(pingRepositoryKey, new PingMockRepository());
+    const pingRepository = inject(pingRepositoryKey);
 
-    const { usePingQuery } = PingQueryFactory.create(pingRepository);
-
-    const pingQuery = usePingQuery();
+    const { usePing } = new PingService(pingRepository).createComposables();
 
     return {
-        pingResponse: pingQuery.data,
-        isPingFetching: pingQuery.isFetching,
-        pingError: pingQuery.error,
-        ping: pingQuery.refetch,
+        ping: usePing(),
     };
 };
