@@ -3,9 +3,9 @@ import { pingRepositoryKey } from '../injectionSymbols';
 import { PingService } from '../services/pingService';
 
 export const usePingPage = () => {
-    const pingRepository = inject(pingRepositoryKey);
+    const pingService = new PingService(inject(pingRepositoryKey));
 
-    const { usePing } = new PingService(pingRepository).createComposables();
+    const { usePing } = pingService.createComposables();
 
     return {
         ping: usePing(),
