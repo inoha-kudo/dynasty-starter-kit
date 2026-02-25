@@ -1,4 +1,4 @@
-import type { PingRepository } from './pingRepository';
+import type { PingRepository } from '../contracts/pingRepository';
 
 export class PingNullRepository implements PingRepository {
     ping(): Promise<string> {

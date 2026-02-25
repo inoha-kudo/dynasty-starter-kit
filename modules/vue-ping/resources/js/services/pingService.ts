@@ -1,7 +1,7 @@
 import { useQuery } from '@tanstack/vue-query';
 import { reactive } from 'vue';
+import type { PingRepository } from '../contracts/pingRepository';
 import { PingNullRepository } from '../repositories/pingNullRepository';
-import type { PingRepository } from '../repositories/pingRepository';
 
 export class PingService {
     constructor(private readonly pingRepository: PingRepository = new PingNullRepository()) {}
