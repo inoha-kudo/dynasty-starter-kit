@@ -6,26 +6,18 @@ import { PingNullRepository } from '../repositories/pingNullRepository';
 export class PingService {
     constructor(private readonly pingRepository: PingRepository = new PingNullRepository()) {}
 
-    createComposables() {
-        return {
-            usePing: this.createUsePing(),
-        };
-    }
+    usePing() {
+        const query = useQuery({
+            queryKey: ['ping'],
+            queryFn: () => this.pingRepository.ping(),
+            enabled: false,
+        });
 
-    private createUsePing() {
-        return () => {
-            const query = useQuery({
-                queryKey: ['ping'],
-                queryFn: () => this.pingRepository.ping(),
-                enabled: false,
-            });
-
-            return reactive({
-                data: query.data,
-                isFetching: query.isFetching,
-                error: query.error,
-                fetch: query.refetch,
-            });
-        };
+        return reactive({
+            data: query.data,
+            isFetching: query.isFetching,
+            error: query.error,
+            fetch: query.refetch,
+        });
     }
 }
