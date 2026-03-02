@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import PingTest from '@dynasty/ping/components/PingTest.vue';
+import { usePingPage } from '@dynasty/ping/composables/usePingPage';
 import { Head } from '@inertiajs/vue3';
-import { usePingPage } from '@miraiportal/vue-ping';
 
 const { ping } = usePingPage();
 </script>

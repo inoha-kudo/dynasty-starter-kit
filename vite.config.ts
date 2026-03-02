@@ -35,6 +35,7 @@ export default defineConfig({
         include: [
             'resources/js/tests/**/*.test.ts',
             'app-modules/*/resources/js/tests/**/*.test.ts',
+            'modules/*/resources/js/tests/**/*.test.ts',
         ],
     },
 });
