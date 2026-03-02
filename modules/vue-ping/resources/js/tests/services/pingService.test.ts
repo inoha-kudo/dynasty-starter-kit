@@ -1,21 +1,50 @@
-import { QueryClient, VueQueryPlugin } from '@tanstack/vue-query';
-import { createApp } from 'vue';
+import { useQuery } from '@tanstack/vue-query';
+import { ref } from 'vue';
 import { PingService } from '../../services/pingService';
 
-test('usePing', async () => {
-    const app = createApp({});
-    app.use(VueQueryPlugin, { queryClient: new QueryClient() });
+vi.mock('@tanstack/vue-query', () => ({
+    useQuery: vi.fn(),
+}));
 
+afterEach(() => {
+    vi.resetAllMocks();
+});
+
+test('usePing fetches data using repository and updates refs', async () => {
     const pingRepositoryMock = {
         ping: vi.fn().mockResolvedValue('pong'),
     };
 
-    const pingQuery = app.runWithContext(function () {
-        return new PingService(pingRepositoryMock).usePing();
+    const data = ref<string | undefined>(undefined);
+    const isFetching = ref(false);
+    const error = ref<unknown>(null);
+
+    vi.mocked(useQuery).mockImplementation(({ queryFn }: any) => {
+        return {
+            data,
+            isFetching,
+            error,
+            refetch: vi.fn(async () => {
+                data.value = await queryFn();
+                return { data: { value: data.value } };
+            }),
+        } as any;
     });
 
-    await pingQuery.fetch();
+    const ping = new PingService(pingRepositoryMock).usePing();
+
+    expect(useQuery).toHaveBeenCalledWith(
+        expect.objectContaining({
+            queryKey: ['ping'],
+            enabled: false,
+            queryFn: expect.any(Function),
+        }),
+    );
+
+    await ping.fetch();
 
     expect(pingRepositoryMock.ping).toHaveBeenCalledOnce();
-    expect(pingQuery.data).toBe('pong');
+    expect(ping.data).toBe(data.value);
+    expect(ping.isFetching).toBe(isFetching.value);
+    expect(ping.error).toBe(error.value);
 });
