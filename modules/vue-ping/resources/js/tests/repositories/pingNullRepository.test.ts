@@ -14,5 +14,5 @@ test('ping', async () => {
 
     await vi.advanceTimersByTimeAsync(500);
 
-    expect(promise).resolves.toBe('');
+    expect(await promise).toBe('');
 });
