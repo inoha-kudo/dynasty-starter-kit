@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import PingTest from '@dynasty/ping/components/PingTest.vue';
 import { usePingPage } from '@dynasty/ping/composables/usePingPage';
-import { useCounter } from '@miraiportal/vue-counter';
 import { Head } from '@inertiajs/vue3';
+import { useCounter } from '@miraiportal/vue-counter';
 
 const { ping } = usePingPage();
 const { value: count, increment, decrement } = useCounter();

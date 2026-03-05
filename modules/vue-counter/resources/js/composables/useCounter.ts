@@ -1,5 +1,5 @@
-import { Count } from '../models/counter';
 import { computed, ref } from 'vue';
+import { Count } from '../models/counter';
 
 export function useCounter(initial = 0) {
     const count = ref(new Count(initial));
