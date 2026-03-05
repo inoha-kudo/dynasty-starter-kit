@@ -5,7 +5,7 @@ import { Head } from '@inertiajs/vue3';
 import { useCounter } from '@miraiportal/vue-counter';
 
 const { ping } = usePingPage();
-const { value: count, increment, decrement } = useCounter();
+const { value: count, increment, decrement, reset } = useCounter();
 </script>
 
 <template>
@@ -21,6 +21,12 @@ const { value: count, increment, decrement } = useCounter();
                     class="rounded-lg bg-[#1b1b18] px-4 py-2 text-white transition hover:bg-[#1b1b18]/80 dark:bg-[#EDEDEC] dark:text-[#1b1b18] dark:hover:bg-[#EDEDEC]/80"
                 >
                     Decrement
+                </button>
+                <button
+                    @click="reset"
+                    class="rounded-lg bg-[#1b1b18] px-4 py-2 text-white transition hover:bg-[#1b1b18]/80 dark:bg-[#EDEDEC] dark:text-[#1b1b18] dark:hover:bg-[#EDEDEC]/80"
+                >
+                    Reset
                 </button>
                 <button
                     @click="increment"

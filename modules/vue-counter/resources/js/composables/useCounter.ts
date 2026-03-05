@@ -8,6 +8,7 @@ export function useCounter(initial = 0) {
 
     const increment = () => (count.value = count.value.increment());
     const decrement = () => (count.value = count.value.decrement());
+    const reset = () => (count.value = new Count(initial));
 
-    return { count, value, increment, decrement };
+    return { count, value, increment, decrement, reset };
 }
