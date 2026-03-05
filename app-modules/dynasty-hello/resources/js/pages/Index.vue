@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { Head } from '@inertiajs/vue3';
-import { HelloContent } from '@miraiportal/vue-hello';
+import { HelloText } from '@miraiportal/vue-hello';
 
 defineProps<{
     message: string;
@@ -9,5 +9,5 @@ defineProps<{
 
 <template>
     <Head title="Hello" />
-    <HelloContent :message="message" />
+    <HelloText :name="message" />
 </template>

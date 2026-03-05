@@ -39,6 +39,7 @@
             "@miraiportal/ping/*": ["./node_modules/@miraiportal/ping/resources/js/*"],
             "@dynasty/ping/*": ["./app-modules/dynasty-ping/resources/js/*"],
             "@miraiportal/vue-ping/*": ["./modules/vue-ping/resources/js/*"],
+            "@miraiportal/vue-counter/*": ["./modules/vue-counter/resources/*"],
             "@dynasty/hello/*": ["./app-modules/dynasty-hello/resources/js/*"]
         },
         // "rootDirs": [],                                   /* Allow multiple folders to be treated as one when resolving modules. */
