@@ -1,0 +1,12 @@
+{
+    "link": {
+        "js": {
+            "exports": [
+                "counter_new",
+                "counter_get",
+                "counter_increment",
+                "counter_decrement"
+            ]
+        }
+    }
+}

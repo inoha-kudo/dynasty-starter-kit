@@ -6,6 +6,7 @@ import vue from '@vitejs/plugin-vue';
 import laravel from 'laravel-vite-plugin';
 import { defineConfig } from 'vite';
 import webfontDownload from 'vite-plugin-webfont-dl';
+import { moonbit } from 'vite-plugin-moonbit';
 
 export default defineConfig({
     plugins: [
@@ -15,6 +16,11 @@ export default defineConfig({
             refresh: true,
         }),
         tailwindcss(),
+        moonbit({
+            root: "resources/moon",
+            watch: true,
+            target: "js",
+        }),
         vue({
             template: {
                 transformAssetUrls: {

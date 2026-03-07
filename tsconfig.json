@@ -40,7 +40,8 @@
             "@dynasty/ping/*": ["./app-modules/dynasty-ping/resources/js/*"],
             "@miraiportal/vue-ping/*": ["./modules/vue-ping/resources/js/*"],
             "@miraiportal/vue-counter/*": ["./modules/vue-counter/resources/*"],
-            "@dynasty/hello/*": ["./app-modules/dynasty-hello/resources/js/*"]
+            "@dynasty/hello/*": ["./app-modules/dynasty-hello/resources/js/*"],
+            "mbt:sample-moon/moon/*": ["./resources/moon/*"]
         },
         // "rootDirs": [],                                   /* Allow multiple folders to be treated as one when resolving modules. */
         // "typeRoots": [],                                  /* Specify multiple folders that act like './node_modules/@types'. */
