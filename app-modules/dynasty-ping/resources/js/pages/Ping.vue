@@ -5,7 +5,7 @@ import { Head } from '@inertiajs/vue3';
 import { useCounter } from '@miraiportal/vue-counter';
 
 const { ping } = usePingPage();
-const { value: count, increment, decrement, reset } = useCounter();
+const { count, increment, decrement, reset } = useCounter();
 </script>
 
 <template>
