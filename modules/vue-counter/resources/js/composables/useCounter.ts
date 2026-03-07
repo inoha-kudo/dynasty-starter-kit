@@ -1,5 +1,5 @@
+import { Count } from '@miraiportal/ts-counter';
 import { computed, ref } from 'vue';
-import { Count } from '../models/count';
 
 export function useCounter(initial = 0) {
     const count = ref(Count.of(initial));
