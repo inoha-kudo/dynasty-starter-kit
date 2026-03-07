@@ -1,9 +1,12 @@
-import { counter_decrement, counter_get, counter_increment, counter_new } from 'mbt:sample-moon/moon/src/counter';
-import { computed, ref, triggerRef } from 'vue';
+import wasm from 'mbt:sample-moon/moon/src/counter';
+import { computed, shallowRef, triggerRef } from 'vue';
+
+const instance = await wasm();
+const { counter_get, counter_new, counter_increment, counter_decrement } = instance.exports;
 
 export const useMoonCounter = () => {
     // MoonBit のインスタンスを生成 (counter_new)
-    const counter = ref(counter_new());
+    const counter = shallowRef(counter_new());
 
     // 初期値の反映（MoonBit の実装に合わせて初期値を設定）
     // for (let i = 0; i < initialCount; i++) {
@@ -17,11 +20,11 @@ export const useMoonCounter = () => {
         increment: () => {
             counter_increment(counter.value);
             // 内部状態が変更されたことを Vue に通知
-            // triggerRef(counter);
+            triggerRef(counter);
         },
         decrement: () => {
             counter_decrement(counter.value);
-            // triggerRef(counter);
+            triggerRef(counter);
         },
         reset: () => {
             counter.value = counter_new();

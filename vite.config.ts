@@ -27,7 +27,7 @@ export default defineConfig({
         moonbit({
             root: 'resources/moon',
             watch: false,
-            target: 'js',
+            target: 'wasm-gc',
         }),
         wayfinder({
             formVariants: true,
