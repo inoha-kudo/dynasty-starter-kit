@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { Count } from '../../js/models/count';
+import { Count } from '../../models/count';
 
 describe('Count', () => {
     it('can be incremented', () => {
@@ -32,7 +32,7 @@ describe('Count', () => {
     it('must be an integer', () => {
         const invalidValue = 1.5;
         expect(() => Count.of(invalidValue)).toThrow(TypeError);
-        expect(() => Count.of(invalidValue)).toThrow(Count.EXCEPTION_MESSAGE_VALUE_MUST_BE_INTEGER.replace('%s', invalidValue.toString()));
+        expect(() => Count.of(invalidValue)).toThrow(Count.ERROR_MESSAGE_VALUE_NOT_INTEGER.replace('%s', invalidValue.toString()));
         expect(() => Count.of(0.1)).toThrow(TypeError);
     });
 });

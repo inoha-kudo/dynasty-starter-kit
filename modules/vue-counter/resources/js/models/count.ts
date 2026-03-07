@@ -1,9 +1,9 @@
 export class Count {
-    public static readonly EXCEPTION_MESSAGE_VALUE_MUST_BE_INTEGER = 'The provided value (%s) must be an integer.';
+    static readonly ERROR_MESSAGE_VALUE_NOT_INTEGER = 'The provided value (%s) must be an integer.';
 
     private constructor(public readonly value: number) {
         if (!Number.isInteger(value)) {
-            throw new TypeError(Count.EXCEPTION_MESSAGE_VALUE_MUST_BE_INTEGER.replace('%s', value.toString()));
+            throw new TypeError(Count.ERROR_MESSAGE_VALUE_NOT_INTEGER.replace('%s', value.toString()));
         }
     }
 
