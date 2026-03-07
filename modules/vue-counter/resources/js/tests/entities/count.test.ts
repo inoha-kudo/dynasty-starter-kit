@@ -1,5 +1,5 @@
-import { expect, test } from 'vitest';
 import { Count, Counter } from '@miraiportal/ts-counter';
+import { expect, test } from 'vitest';
 
 test('can be incremented', () => {
     const counter = Counter.of(0);
