@@ -1,8 +1,8 @@
 import { Counter } from '@miraiportal/ts-counter';
-import { computed, ref } from 'vue';
+import { computed, shallowRef } from 'vue';
 
 export const useCounter = (initialCount = 0) => {
-    const counter = ref(Counter.create(initialCount));
+    const counter = shallowRef(Counter.create(initialCount));
 
     return {
         count: computed(() => counter.value.count.value),
