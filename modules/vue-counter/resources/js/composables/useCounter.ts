@@ -1,4 +1,4 @@
-import { Counter } from '@miraiportal/ts-counter';
+import { Counter } from '@miraiportal/counter';
 import { computed, shallowRef } from 'vue';
 
 export const useCounter = (initialCount = 0) => {
