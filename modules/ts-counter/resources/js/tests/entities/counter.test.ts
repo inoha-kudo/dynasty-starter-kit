@@ -1,4 +1,3 @@
-import { expect, test } from 'vitest';
 import { Counter } from '../../entities/counter';
 
 test('can increment', () => {
