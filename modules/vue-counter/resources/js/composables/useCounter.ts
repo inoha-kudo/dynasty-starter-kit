@@ -1,14 +1,14 @@
-import { Count } from '@miraiportal/ts-counter';
+import { Counter } from '@miraiportal/ts-counter';
 import { computed, ref } from 'vue';
 
 export function useCounter(initial = 0) {
-    const count = ref(Count.of(initial));
+    const counter = ref(Counter.of(initial));
 
-    const value = computed(() => count.value.value);
+    const value = computed(() => counter.value.count.value);
 
-    const increment = () => (count.value = count.value.increment());
-    const decrement = () => (count.value = count.value.decrement());
-    const reset = () => (count.value = Count.of(initial));
+    const increment = () => (counter.value = counter.value.increment());
+    const decrement = () => (counter.value = counter.value.decrement());
+    const reset = () => (counter.value = Counter.of(initial));
 
-    return { count, value, increment, decrement, reset };
+    return { counter, value, increment, decrement, reset };
 }

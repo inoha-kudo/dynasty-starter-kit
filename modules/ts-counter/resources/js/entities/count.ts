@@ -10,12 +10,4 @@ export class Count {
     static of(value: number): Count {
         return new Count(value);
     }
-
-    increment(): Count {
-        return Count.of(this.value + 1);
-    }
-
-    decrement(): Count {
-        return Count.of(this.value - 1);
-    }
 }
