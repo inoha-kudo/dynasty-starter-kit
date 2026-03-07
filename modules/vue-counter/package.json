@@ -9,7 +9,7 @@
         "test": "vitest run"
     },
     "dependencies": {
-        "@miraiportal/ts-counter": "^1.0.0"
+        "@miraiportal/counter": "^1.0.0"
     },
     "devDependencies": {
         "vite": "^7.3.1",
