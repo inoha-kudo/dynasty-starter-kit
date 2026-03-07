@@ -16,11 +16,6 @@ export default defineConfig({
             refresh: true,
         }),
         tailwindcss(),
-        moonbit({
-            root: "resources/moon",
-            watch: true,
-            target: "js",
-        }),
         vue({
             template: {
                 transformAssetUrls: {
@@ -28,6 +23,11 @@ export default defineConfig({
                     includeAbsolute: false,
                 },
             },
+        }),
+        moonbit({
+            root: 'resources/moon',
+            watch: false,
+            target: 'js',
         }),
         wayfinder({
             formVariants: true,
@@ -38,10 +38,6 @@ export default defineConfig({
         globals: true,
         environment: 'happy-dom',
         setupFiles: ['resources/js/tests/setup.ts'],
-        include: [
-            'resources/js/tests/**/*.test.ts',
-            'app-modules/*/resources/js/tests/**/*.test.ts',
-            'modules/*/resources/js/tests/**/*.test.ts',
-        ],
+        include: ['resources/js/tests/**/*.test.ts', 'app-modules/*/resources/js/tests/**/*.test.ts', 'modules/*/resources/js/tests/**/*.test.ts'],
     },
 });

@@ -2,10 +2,10 @@
 import PingTest from '@dynasty/ping/components/PingTest.vue';
 import { usePingPage } from '@dynasty/ping/composables/usePingPage';
 import { Head } from '@inertiajs/vue3';
-import { useCounter } from '@miraiportal/vue-counter';
+import { useMoonCounter } from '@miraiportal/vue-counter';
 
 const { ping } = usePingPage();
-const { count, increment, decrement, reset } = useCounter();
+const { count, increment, decrement, reset } = useMoonCounter();
 </script>
 
 <template>
