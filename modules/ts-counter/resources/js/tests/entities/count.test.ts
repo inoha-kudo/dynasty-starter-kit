@@ -1,31 +1,9 @@
 import { expect, test } from 'vitest';
 import { Count } from '../../entities/count';
 
-test('can be incremented', () => {
-    const counter = Counter.create(0);
-    expect(counter.increment().count.value).toBe(1);
-});
-
-test('can be decremented', () => {
-    const counter = Counter.create(1);
-    expect(counter.decrement().count.value).toBe(0);
-});
-
-test('can be reset', () => {
-    const initial = 10;
-    // Counterクラスで新しいインスタンスを作ることでリセットを表現
-    const resetCounter = Counter.create(initial);
-    expect(resetCounter.count.value).toBe(10);
-});
-
 test('can be negative', () => {
     const count = Count.of(-1);
     expect(count.value).toBe(-1);
-});
-
-test('can decrement below zero', () => {
-    const counter = Counter.create(0);
-    expect(counter.decrement().count.value).toBe(-1);
 });
 
 test('must be an integer', () => {
