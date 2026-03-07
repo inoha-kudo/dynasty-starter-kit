@@ -1,0 +1,7 @@
+// import {
+//   "sample-moon/moon" as @lib,
+// }
+
+options(
+  "is-main": true,
+)
