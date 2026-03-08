@@ -11,9 +11,13 @@ test('value', () => {
 });
 
 test('increment', () => {
-    expect(Counter.create(0).increment().count.value).toBe(1);
+    const value = 0;
+
+    expect(Counter.create(value).increment().count.value).toBe(value + 1);
 });
 
 test('decrement', () => {
-    expect(Counter.create(0).decrement().count.value).toBe(-1);
+    const value = 0;
+
+    expect(Counter.create(value).decrement().count.value).toBe(value - 1);
 });

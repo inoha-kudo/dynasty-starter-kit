@@ -11,7 +11,7 @@ test('of with non-integer value', () => {
 });
 
 test('value', () => {
-    const value = 1;
+    const value = 0;
 
     expect(Count.of(value).value).toBe(value);
 });
