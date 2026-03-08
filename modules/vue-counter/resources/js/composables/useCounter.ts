@@ -1,3 +1,4 @@
+// @ts-ignore
 import wasm from 'mbt:sample-moon/moon/src/counter';
 import { computed, shallowRef, triggerRef } from 'vue';
 
