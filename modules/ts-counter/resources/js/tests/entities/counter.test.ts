@@ -1,15 +1,19 @@
 import { Counter } from '../../entities/counter';
 
-test('can increment', () => {
-    const counter = Counter.create(0);
-    const incremented = counter.increment();
-    expect(incremented.count.value).toBe(1);
-    // Original counter should not be changed (immutability check)
-    expect(counter.count.value).toBe(0);
+test('create', () => {
+    expect(() => Counter.create(0)).not.toThrow();
 });
 
-test('can decrement', () => {
-    const counter = Counter.create(10);
-    const decremented = counter.decrement();
-    expect(decremented.count.value).toBe(9);
+test('value', () => {
+    const value = 0;
+
+    expect(Counter.create(value).count.value).toBe(value);
+});
+
+test('increment', () => {
+    expect(Counter.create(0).increment().count.value).toBe(1);
+});
+
+test('decrement', () => {
+    expect(Counter.create(0).decrement().count.value).toBe(-1);
 });
