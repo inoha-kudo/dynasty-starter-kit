@@ -8,6 +8,8 @@ use Illuminate\Support\Facades\Route;
 
 enum Module: string
 {
+    case Hello = HelloModule::class;
+
     public static function loadWebRoutes(): void
     {
         foreach (self::web() as $module) {
