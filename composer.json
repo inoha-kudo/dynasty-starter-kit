@@ -11,10 +11,7 @@
     "repositories": [
         {
             "type": "path",
-            "url": "app-modules/*",
-            "options": {
-                "symlink": false
-            }
+            "url": "app-modules/*"
         },
         {
             "type": "path",

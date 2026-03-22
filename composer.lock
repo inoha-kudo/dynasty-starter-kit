@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "3e78660d44058e649476053d5cf3b6b5",
+    "content-hash": "60f47c063a1a41841105e992821e4e06",
     "packages": [
         {
             "name": "brick/math",
@@ -447,7 +447,7 @@
             "dist": {
                 "type": "path",
                 "url": "app-modules/dynasty-hello",
-                "reference": "74d2e11433f165ef7190cf060b2cc559672b0589"
+                "reference": "d77249f4bd50d64c0d542eb1736f015a1618934f"
             },
             "type": "library",
             "autoload": {
@@ -459,7 +459,6 @@
                 "MIT"
             ],
             "transport-options": {
-                "symlink": false,
                 "relative": true
             }
         },
