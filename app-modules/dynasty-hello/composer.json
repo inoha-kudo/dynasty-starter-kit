@@ -1,0 +1,9 @@
+{
+    "name": "dynasty/hello",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Dynasty\\Hello\\": "src/"
+        }
+    }
+}

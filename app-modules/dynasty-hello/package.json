@@ -1,0 +1,8 @@
+{
+    "name": "@dynasty/hello",
+    "version": "1.0.0",
+    "license": "MIT",
+    "exports": {
+        "./*": "./resources/js/*"
+    }
+}
