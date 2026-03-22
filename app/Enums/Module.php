@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Enums;
 
+use Dynasty\Hello\Modules\HelloModule;
 use Illuminate\Support\Facades\Route;
 
 enum Module: string

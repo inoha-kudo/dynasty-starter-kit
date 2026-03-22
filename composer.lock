@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "f801924782e19931bab4369dc322d129",
+    "content-hash": "3e78660d44058e649476053d5cf3b6b5",
     "packages": [
         {
             "name": "brick/math",
@@ -440,6 +440,28 @@
                 }
             ],
             "time": "2025-10-31T18:51:33+00:00"
+        },
+        {
+            "name": "dynasty/hello",
+            "version": "1.0.0",
+            "dist": {
+                "type": "path",
+                "url": "app-modules/dynasty-hello",
+                "reference": "74d2e11433f165ef7190cf060b2cc559672b0589"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Dynasty\\Hello\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "transport-options": {
+                "symlink": false,
+                "relative": true
+            }
         },
         {
             "name": "egulias/email-validator",
