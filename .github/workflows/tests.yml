@@ -40,6 +40,8 @@ jobs:
 
       - name: Install Dependencies
         run: composer install --no-interaction --prefer-dist --optimize-autoloader
+        env:
+          COMPOSER_MIRROR_PATH_REPOS: 1
 
       - name: Copy Environment File
         run: cp .env.example .env
